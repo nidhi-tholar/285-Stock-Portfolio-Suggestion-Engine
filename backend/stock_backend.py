@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, abort
 from flask import request
 import json
 import yfinance as yf
@@ -371,7 +371,16 @@ def get_stock_quote(stock_list):
 
     return stock_quote
 
+@app.route("/checkStock/<stock>", methods=['GET'])
+@cross_origin(origins="*")
+def check(stock):
+    a = yf.Ticker(stock.upper())
+    if not a.info['regularMarketPrice']:
+        abort(404)
+    return "200"
+
 
 if __name__ == "__main__":
     app.static_folder = 'static'
     app.run(host="0.0.0.0", debug=True)
+    # app.run(port= 7000, debug=True)
