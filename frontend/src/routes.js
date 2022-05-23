@@ -39,12 +39,6 @@ const dashboardRoutes = [
     name: "Favorites",
     component: MainFav,
     layout: "/admin"
-  },
-  {
-    path: "/typography",
-    name: "Read More",
-    component: Typography,
-    layout: "/admin"
   }
 ];
 

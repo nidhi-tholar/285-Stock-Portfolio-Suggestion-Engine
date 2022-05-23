@@ -17,7 +17,7 @@ const useStyles = makeStyles(styles);
                 <CardBody>
                 <h3 className={classes.cardTitle}  style={{color:"white"}}>{symbol.symbol}</h3>
                 <h4 className={classes.cardTitle}  style={{color:"white"}}>{symbol.longName}</h4>
-                <h4 className={classes.cardTitle}  style={{color:"white"}}>$ {symbol.price}</h4>
+                <h4 className={classes.cardTitle}  style={{color:"white"}}>$ {symbol.price.toFixed(2)}</h4>
                 </CardBody>
                 </Card>
             </div>

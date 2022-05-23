@@ -1,6 +1,7 @@
 import Favorites from "./Favorites";
 import AddFavorite from "./addFavorite";
 import * as React from 'react';
+import axios from 'axios';
 
  const MainFav = () => {
 
@@ -16,6 +17,7 @@ import * as React from 'react';
             setSymbols(items);
         }
     }, []);
+
 
     return (
         <div>

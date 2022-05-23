@@ -18,9 +18,12 @@ import { toast } from 'react-toastify'
 
   const addToFav  = async(e) =>  {
     e.preventDefault();
-    setMessage('');
+    setMessage('Just a moment...');
     if (value == '') return toast('Symbol missing', { type: 'error' })
-
+    if (symbols.filter(item=> item.symbol == value.toUpperCase()).length != 0){
+      setMessage("Symbol is already added to Favorites")
+      return;
+    }
      await axios.get('http://localhost:5000/checkStock/' + value)
         .then(resp => {
             let data = resp.data
