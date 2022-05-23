@@ -4,12 +4,20 @@ import * as React from 'react';
 
  const MainFav = () => {
 
+    // const [items, setItems] = React.useState([]);
     const [symbols, setSymbols] = React.useState([]);
+
+    React.useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('symbols'));
+        if (items) {
+            setSymbols(items);
+        }
+    }, []);
 
     return (
         <div>
           <AddFavorite setFun={setSymbols} symbols={symbols}/>
-          <Favorites symbols={symbols}/>
+          {symbols.map(symbol => <Favorites key={symbol.symbol} symbol={symbol}/>)}
         </div>
       );
     };
