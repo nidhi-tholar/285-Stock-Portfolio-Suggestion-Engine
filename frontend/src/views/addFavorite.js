@@ -16,25 +16,18 @@ import { toast } from 'react-toastify'
   };
 
   const addToFav  = async(e) =>  {
-    //   setFun([...symbols, {"s": value, "d":"Bitch"}])
-    //   console.log(symbols)
-
     e.preventDefault();
-    console.log(symbols);
     if (value == '') return toast('Symbol missing', { type: 'error' })
 
      await axios.get('http://localhost:5000/checkStock/' + value)
         .then(resp => {
             let data = resp.data
-            console.log(data);
             setFun(symbols => [...symbols, data]);
-            console.log(symbols);
-            localStorage.setItem('symbols', JSON.stringify(symbols))
+            localStorage.setItem('symbols', JSON.stringify([...symbols, data]))
             setMessage("Added " + resp.data.symbol + " to Favorites");
         })
         .catch(err => {
             // Handle Error Here
-            console.error(err);
             setMessage("Invalid Symbol")
         });
   }
@@ -46,7 +39,7 @@ import { toast } from 'react-toastify'
                 Stock symbol:
                 <input type="text" name="name"  placeholder='Enter a symbol' onChange={handleChange}/>
             </label>
-            <input type="submit" value="Add to Favorites" onClick={addToFav}/>
+            <input type="submit" value="Add to Favorites" onClick={(e) => {addToFav(e);}}/>
             <div>{message}</div>
             </form>
 

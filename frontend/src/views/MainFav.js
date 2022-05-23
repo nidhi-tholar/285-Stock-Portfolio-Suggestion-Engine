@@ -8,6 +8,9 @@ import * as React from 'react';
     const [symbols, setSymbols] = React.useState([]);
 
     React.useEffect(() => {
+    }, [symbols]);
+
+    React.useEffect(() => {
         const items = JSON.parse(localStorage.getItem('symbols'));
         if (items) {
             setSymbols(items);
