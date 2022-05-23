@@ -23,8 +23,8 @@ input, select.form-control:not([size]):not([multiple]) {
   display: flex !important;
   padding: 5px !important;
   background: rgba(255, 122, 89, .1) !important;
-  color: #fff !important;
-  font-weight: bold !important;
+  color: rgb(7, 0, 0) !important;
+  /* font-weight: bold !important; */
 
 }
 .makeStyles-card-116,.makeStyles-card-107 {
@@ -32,7 +32,7 @@ input, select.form-control:not([size]):not([multiple]) {
 }
 .makeStyles-wrapper-1{
   /* The image used */
-  background-image: url(../img/skyscraper-3302027__480.jpeg);
+  /* background-image: url(../img/skyscraper-3302027__480.jpeg); */
 
   /* Full height */
 
@@ -66,7 +66,7 @@ input, select.form-control:not([size]):not([multiple]) {
   font-weight: bold !important;
 }
 .loading {
-  height: 300px;
+  height: 150px;
 }
  /* Sachiths edit End */
  .ct-grid {

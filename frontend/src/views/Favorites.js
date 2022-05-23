@@ -1,6 +1,4 @@
 import React from 'react';
-import AddFavorite from './addFavorite';
-import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "components/Card/Card.js";
@@ -15,11 +13,11 @@ const useStyles = makeStyles(styles);
    
         return (
             <div>
-                <Card>
+                <Card style={{backgroundColor:"rgba(0,0,0, 0.7)"}}>
                 <CardBody>
-                <h3 className={classes.cardTitle}>{symbol.symbol}</h3>
-                <h4 className={classes.cardTitle}>{symbol.longName}</h4>
-                <h4 className={classes.cardTitle}>{symbol.price}</h4>
+                <h3 className={classes.cardTitle}  style={{color:"white"}}>{symbol.symbol}</h3>
+                <h4 className={classes.cardTitle}  style={{color:"white"}}>{symbol.longName}</h4>
+                <h4 className={classes.cardTitle}  style={{color:"white"}}>$ {symbol.price}</h4>
                 </CardBody>
                 </Card>
             </div>

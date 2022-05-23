@@ -16,57 +16,34 @@
 
 */
 // @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
-import Person from "@material-ui/icons/Person";
-import DashboardPage from "views/Dashboard/Dashboard.js";
 import Typography from "views/Typography/Typography.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
-import MarketAtGlance from './views/MarketAtGlance';
 import OurPortfolio from './views/OurPortfolio';
-// import Favorites from "./views/Favorites";
 import MainFav from "./views/MainFav";
 
 const dashboardRoutes = [
   {
-    path: "/user",
-    name: "Dashboard",
-    icon: Person,
+    path: "/home",
+    name: "Home",
     component: UserProfile,
     layout: "/admin"
   },
   {
-    path: "/dashboard",
-    name: "Investment Details",
-    icon: Dashboard,
-    component: DashboardPage,
-    layout: "/admin"
-  },
-  {
-    path: "/typography",
-    name: "Read More",
-    icon: Dashboard,
-    component: Typography,
-    layout: "/admin"
-  },
-  {
-    path: "/marketatglance",
-    name: "Market At Glance",
-    icon: Dashboard,
-    component: MarketAtGlance,
+    path: "/ourportfolio",
+    name: "Portfolio",
+    component: OurPortfolio,
     layout: "/admin"
   },
   {
     path: "/favorites",
     name: "Favorites",
-    icon: Dashboard,
     component: MainFav,
     layout: "/admin"
   },
   {
-    path: "/ourportfolio",
-    name: "Our Portfolio",
-    icon: Dashboard,
-    component: OurPortfolio,
+    path: "/typography",
+    name: "Read More",
+    component: Typography,
     layout: "/admin"
   }
 ];

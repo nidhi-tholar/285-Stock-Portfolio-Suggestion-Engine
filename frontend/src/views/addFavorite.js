@@ -13,10 +13,12 @@ import { toast } from 'react-toastify'
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    setMessage('');
   };
 
   const addToFav  = async(e) =>  {
     e.preventDefault();
+    setMessage('');
     if (value == '') return toast('Symbol missing', { type: 'error' })
 
      await axios.get('http://localhost:5000/checkStock/' + value)
@@ -38,8 +40,8 @@ import { toast } from 'react-toastify'
             <label>
                 Stock symbol:
                 <input type="text" name="name"  placeholder='Enter a symbol' onChange={handleChange}/>
-            </label>
-            <input type="submit" value="Add to Favorites" onClick={(e) => {addToFav(e);}}/>
+            </label> &nbsp;
+            <button style={{backgroundColor:"rgba(0,0,0, 0.8)", color:"white"}} onClick={(e) => {addToFav(e);}}>Add to Favorites</button>
             <div>{message}</div>
             </form>
 

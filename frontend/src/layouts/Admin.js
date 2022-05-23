@@ -28,7 +28,7 @@ const switchRoutes = (
       }
       return null;
     })}
-    <Redirect from="/admin" to="/admin/dashboard" />
+    <Redirect from="/admin" to="/admin/home" />
   </Switch>
 );
 
@@ -83,7 +83,7 @@ export default function Admin({ ...rest }) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Stock Calculator"}
+        logoText={"Stock Suggestion"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}

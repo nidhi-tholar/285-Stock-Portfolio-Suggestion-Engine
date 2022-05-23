@@ -19,11 +19,11 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 
 const useStyles = makeStyles(styles);
 
-const Dashboard = (props) => {
+const Dashboard = ({results}) => {
   const classes = useStyles();
   var Chartist = require("chartist");
   const [colors, setColors] = useState(['success', 'warning', 'danger', 'primary', 'info'])
-  const [results, setResults] = useState([])
+  // const [results, setResults] = useState([])
   const [options, setOptions] = useState({
     lineSmooth: Chartist.Interpolation.cardinal({
       tension: 0
@@ -37,18 +37,11 @@ const Dashboard = (props) => {
       left: 0
     }
   })
-  useEffect(() => {
-    let temp = []
-    temp = JSON.parse(localStorage.getItem('result'))
-    if (!temp) return
-    setResults(temp)
-    localStorage.clear()
-  }, [])
 
   return (
     <div>
       <GridContainer>
-        {results.length > 0 ? results.map((result, index) => (
+        {results && results.length > 0 ? results.map((result, index) => (
           <GridItem key={index} xs={12} sm={12} md={4}>
             <Card chart>
               <CardHeader color={colors[Math.floor(Math.random() * Math.floor(5))]}>
@@ -63,20 +56,20 @@ const Dashboard = (props) => {
               <CardBody>
                 <h3 className={classes.cardTitle}>{result.Strategy}</h3>
                 <h4 className={classes.cardTitle}>{result.CompantName}</h4>
-                <p><strong>Current Price:</strong> {result.CurrentPrice}</p>
+                <p><strong>Price:</strong> $ {result.CurrentPrice.toFixed(2)}</p>
                 <p><strong>Value Change:</strong> {result.ValueChange}</p>
                 <p><strong>Percent Change:</strong> {result.PercentageChange}</p>
-                <p><strong>Units You Can Buy:</strong> {result.UnitsYouCanBuy}</p>
-                <p><strong>Amount You Can Invest:</strong> ${result.AmountYouInvest.toFixed(2)}</p>
+                <p><strong>No. of stocks you can buy:</strong> {result.UnitsYouCanBuy}</p>
+                <p><strong>Amount you can invest:</strong> ${result.AmountYouInvest.toFixed(2)}</p>
               </CardBody>
-              <CardFooter chart>
+              {/* <CardFooter chart>
                 <div className={classes.stats}>
                   <AccessTime /> updated a minutes ago
               </div>
-              </CardFooter>
+              </CardFooter> */}
             </Card>
           </GridItem>
-        )) : <h3>Please fill in the details first in dashboard page</h3>}
+        )) : null}
       </GridContainer>
     </div>
   );
