@@ -377,7 +377,7 @@ def check(stock):
     a = yf.Ticker(stock.upper())
     if not a.info['regularMarketPrice']:
         abort(404)
-    return "200"
+    return {'longName': a.info["longName"], 'symbol': a.info["symbol"]}
 
 
 if __name__ == "__main__":
