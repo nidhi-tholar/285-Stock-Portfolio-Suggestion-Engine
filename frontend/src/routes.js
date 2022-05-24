@@ -16,7 +16,6 @@
 
 */
 // @material-ui/icons
-import Typography from "views/Typography/Typography.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
 import OurPortfolio from './views/OurPortfolio';
 import MainFav from "./views/MainFav";
